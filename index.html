@@ -4,45 +4,63 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Personal website for Canadian-born, New York-based art historian, teacher, writer, translator, cultural worker and programmer Robin Simpson">
-<meta name=”robots” content="index, follow">	
+  <meta name="robots" content="index, follow">
   <title>Robin Simpson</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 0;
+      padding: 1rem;
       background-color: #fff8dc; /* butter yellow */
+      font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
+      min-height: 100vh;
     }
 
     .card {
       background-color: white;
-      padding: 2rem;
+      padding: 1.5rem;
       border: 1px solid #333;
-      border-left: 1px solid #333;
-      border-bottom: 1px solid #333;
       box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.1);
-      max-width: 524px;
-      max-height: 300px;
+      max-width: 600px;
+      width: 100%;
     }
 
     .card h1 {
-      margin: 0 0 1rem 0;
-      font-size: 1.8rem;
+      margin-top: 0;
+      font-size: 1.75rem;
     }
 
     .card p {
       font-style: italic;
       line-height: 1.5;
+      font-size: 1rem;
     }
 
     .email {
       margin-top: 1rem;
       font-style: normal;
       font-weight: bold;
+      word-break: break-word;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 1rem;
+      }
+
+      .card h1 {
+        font-size: 1.5rem;
+      }
+
+      .card p {
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
