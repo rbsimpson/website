@@ -11,25 +11,28 @@
       box-sizing: border-box;
     }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
+    html {
+      font-size: 18px; /* Base font size for rem scaling */
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     body {
+      margin: 0;
+      padding: 1rem;
+      height: 100%;
       background-color: #fff8dc; /* butter yellow */
       font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1rem;
       min-height: 100vh;
     }
 
     .card {
       background-color: white;
-      padding: 1.5rem;
+      padding: 1.25rem;
       border: 1px solid #333;
       box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.1);
       max-width: 600px;
@@ -38,13 +41,13 @@
 
     .card h1 {
       margin-top: 0;
-      font-size: clamp(1.75rem, 5vw, 2.25rem);
+      font-size: 2rem; /* ~36px */
     }
 
     .card p {
       font-style: italic;
       line-height: 1.7;
-      font-size: clamp(1rem, 4vw, 1.25rem);
+      font-size: 1.125rem; /* ~20px */
     }
 
     .email {
