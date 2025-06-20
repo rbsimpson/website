@@ -57,18 +57,25 @@
       word-break: break-word;
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 500px) {
       body {
         display: block;
         padding: 0.5rem;
       }
 
-      .card {
-        height: auto;
-        width: 100%;
-        max-width: none;
-        padding: 1.25rem;
-      }
+  .card {
+    padding: 0.75rem;
+    font-size: 1rem;
+    box-shadow: none;
+  }
+        .card h1 {
+    font-size: 1.5rem;
+  }
+
+  .card p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
     }
   </style>
 </head>
