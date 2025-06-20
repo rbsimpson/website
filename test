@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Responsive Test</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #f9f9f9;
+    }
+
+    .card {
+      background: white;
+      border: 2px solid black;
+      padding: 2rem;
+      margin: auto;
+      max-width: 600px;
+      font-size: 1.25rem;
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        border-color: red;
+        font-size: 1rem;
+        background: #ffe;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Responsive Test</h1>
+    <p>This card should change its style on small screens.</p>
+  </div>
+</body>
+</html>
