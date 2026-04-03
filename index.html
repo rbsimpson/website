@@ -28,17 +28,23 @@
       gap: 1.5rem;
     }
 
-    .card {
-    background-color: white;
-  padding: 1rem 1.1rem;
-  border: 1px solid #333;
-  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.1);
+ .card {
+  background-color: white;
+  padding: 1.25rem 1.5rem;
+  border: 8px solid transparent;
+  border-image: repeating-linear-gradient(
+    45deg,
+    #333 0px,
+    #333 5px,
+    transparent 5px,
+    transparent 10px
+  ) 8;
   flex: 1;
   min-width: 0;
   text-align: left;
   overflow-wrap: break-word;
   font-size: 0.82rem;
-    }
+}
 
     .card h1 {
       margin-top: 0;
