@@ -18,34 +18,36 @@
     body {
       margin: 0;
       padding: 2rem;
-      min-height: 100vh;        /* keeps vertical centering without clipping */
+      min-height: 100vh;
       background-color: white;
       font-family: Optima, Candara, sans-serif;
       display: flex;
-      align-items: center;
+      flex-wrap: wrap;      /* allows cards to wrap instead of squishing */
+      align-items: flex-start;
       justify-content: center;
       gap: 1.5rem;
     }
 
- .card {
-  background-color: white;
-  padding: 1.25rem 1.5rem;
-  border: 8px solid transparent;
-  border-image: repeating-linear-gradient(
-    45deg,
-    #333 0px,
-    #333 5px,
-    transparent 5px,
-    transparent 10px
-  ) 8;
-  flex: 1;
-  min-width: 0;
-  text-align: left;
-  overflow-wrap: break-word;
-  font-size: 0.82rem;
-  overflow: auto;           /* keeps content inside the border */
-  align-self: flex-start;  /* prevents cards from stretching taller than their content */
-}
+    .card {
+      background-color: white;
+      padding: 1.25rem 1.5rem;
+      border: 8px solid transparent;
+      border-image: repeating-linear-gradient(
+        45deg,
+        #333 0px,
+        #333 5px,
+        transparent 5px,
+        transparent 10px
+      ) 8;
+      flex: 1 1 280px;      /* grow, shrink, but never below 280px */
+      min-width: 280px;
+      max-width: 600px;
+      text-align: left;
+      overflow-wrap: break-word;
+      word-break: break-word;  /* prevents long words/emails from overflowing */
+      font-size: 0.82rem;
+      align-self: flex-start;
+    }
 
     .card h1 {
       margin-top: 0;
@@ -58,13 +60,13 @@
       font-size: 1rem;
     }
 
-      .card ul {
+    .card ul {
       font-style: italic;
       line-height: 1.7;
       font-size: 1rem;
     }
 
-        .card li {
+    .card li {
       font-style: italic;
       line-height: 1.7;
       font-size: 1rem;
@@ -89,17 +91,17 @@
       .card {
         padding: 0.75rem;
         font-size: 1rem;
-  
         border: 5px solid transparent;
-  border-image: repeating-linear-gradient(
-    45deg,
-    #333 0px,
-    #333 5px,
-    transparent 5px,
-    transparent 10px
-  ) 8;
+        border-image: repeating-linear-gradient(
+          45deg,
+          #333 0px,
+          #333 5px,
+          transparent 5px,
+          transparent 10px
+        ) 8;
         box-shadow: none;
         max-width: 100%;
+        min-width: 0;       /* allow full-width on mobile */
         margin-bottom: 1rem;
       }
 
@@ -112,12 +114,12 @@
         line-height: 1.5;
       }
 
-        .card ul {
+      .card ul {
         font-size: 1rem;
         line-height: 1.5;
       }
 
-        .card li {
+      .card li {
         font-size: 1rem;
         line-height: 1.5;
       }
@@ -133,23 +135,23 @@
       where I teach art history, literature, and critical theory. I've previously worked at the Leonard & Bina Ellen Art Gallery, the Morris & Helen Belkin Art Gallery, the Aga Khan Museum, Centre des arts actuels SKOL, and the Fonderie Darling.</p> 
     <p>My current book project, <span style="font-style: normal;">Surrounded by Me</span>, explores the discursive, artistic, and clinical lives of video feedback in the hands of artists and psychotherapists in the 1970s. Its follow up, <span style="font-style: normal;">Mad Media</span>, examines the encounters between Mad liberation, digital technology, and
 critical theory in the 1980s and 1990s. In collaboration with the Williams family and musician and writer Alexander Moskos, I coordinate the preservation, research, and presentation of the life work of artist, poet, and musician Carlyle Williams. </p>
-    </p>
     <p class="email">Write to me at robin.b.simpson@pm.me</p>
   </div>
-    <div class="card">
+  <div class="card">
     <h1>Classes taught</h1>
     <p>
       <ul>
         <li>History of Video Art, HTA 313-K, The Cooper Union, Spring 2026</li>
         <li>Freshman Seminar: Old Worlds, HSS 2, The Cooper Union, Spring 2026</li>
         <li>Single Artist: Shigeko Kubota, HTA 300, The Cooper Union, Fall 2025</li>
-<li>Postmodernism and Technology, HUM 330, The Cooper Union, Spring 2025</li>
-<li>Internet Art, HTA 338, The Cooper Union, Spring 2025</li>
-<li>Expanded Curatorial Practices, HTA 343, The Cooper Union, Fall 2024, Fall 2026</li>
-<li>Freshman Seminar, HSS 1, The Cooper Union, Fall 2024, Fall 2025, Fall 2026</li>
-<li>Art and Social Practice, HTA 261, The Cooper Union, Summer 2024, Summer 2025, Summer 2026</li>
-<li>Art & Medicine, MED 419, University of British Columbia, co-taught, Morris and Helen Belkin Art Gallery, Spring 2016</li></ul>
-     </p>
+        <li>Postmodernism and Technology, HUM 330, The Cooper Union, Spring 2025</li>
+        <li>Internet Art, HTA 338, The Cooper Union, Spring 2025</li>
+        <li>Expanded Curatorial Practices, HTA 343, The Cooper Union, Fall 2024, Fall 2026</li>
+        <li>Freshman Seminar, HSS 1, The Cooper Union, Fall 2024, Fall 2025, Fall 2026</li>
+        <li>Art and Social Practice, HTA 261, The Cooper Union, Summer 2024, Summer 2025, Summer 2026</li>
+        <li>Art & Medicine, MED 419, University of British Columbia, co-taught, Morris and Helen Belkin Art Gallery, Spring 2016</li>
+      </ul>
+    </p>
   </div>
 </body>
 </html>
