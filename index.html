@@ -18,15 +18,13 @@
     body {
       margin: 0;
       padding: 2rem;
-      height: 100vh;
+      min-height: 100vh;        /* keeps vertical centering without clipping */
       background-color: white;
       font-family: Optima, Candara, sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
       gap: 1.5rem;
-      align-items: stretch;
     }
 
  .card {
@@ -45,6 +43,8 @@
   text-align: left;
   overflow-wrap: break-word;
   font-size: 0.82rem;
+  overflow: auto;           /* keeps content inside the border */
+  align-self: flex-start;  /* prevents cards from stretching taller than their content */
 }
 
     .card h1 {
