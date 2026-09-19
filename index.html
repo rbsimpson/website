@@ -39,13 +39,13 @@
       right: 0;
       bottom: 0;
       pointer-events: none;
-      z-index: -1;
+      z-index: 10;
     }
 
     .border-ring {
       position: absolute;
       border-color: #ff6347;
-      border-width: 2px;
+      border-width: 1px;
     }
 
     /* Random mixed border style combinations for each ring */
@@ -148,45 +148,51 @@
       /* Frame sits ABOVE content */
       .border-container {
         z-index: 10;
-        pointer-events: none; /* clicks pass through to text below */
+        pointer-events: none;
       }
 
-      /* Only the first 5 rings, thin and evenly spaced */
-      .border-ring {
-        border-width: 1px;
-        border-style: solid !important;
-        background-color: white; /* fills the space so text scrolls behind */
-      }
-
+      /* Hide desktop-only rings 6-10 */
       .border-ring:nth-child(n+6) {
-        display: none; /* hide leftover desktop rings 6–10 */
+        display: none;
       }
 
+      /* Rings 1-4: white bands between them */
       .border-ring:nth-child(1) {
         top: 0; left: 0; right: 0; bottom: 0;
+        background-color: white;
+        z-index: 10;
       }
       .border-ring:nth-child(2) {
         top: 8px; left: 8px; right: 8px; bottom: 8px;
+        background-color: white;
+        z-index: 9;
       }
       .border-ring:nth-child(3) {
         top: 16px; left: 16px; right: 16px; bottom: 16px;
+        background-color: white;
+        z-index: 8;
       }
       .border-ring:nth-child(4) {
         top: 24px; left: 24px; right: 24px; bottom: 24px;
+        background-color: white;
+        z-index: 7;
       }
+      /* Innermost ring: NO background - lets text show through */
       .border-ring:nth-child(5) {
         top: 32px; left: 32px; right: 32px; bottom: 32px;
+        background-color: transparent;
+        z-index: 6;
       }
 
       .content {
         width: 100%;
         margin: 0;
-        padding: 0 1rem;
+        padding: 44px 1rem; /* account for 32px ring + 1px border + 11px buffer */
         background-color: transparent;
         font-size: 1rem;
         line-height: 1.5;
         position: relative;
-        z-index: 1; /* BELOW the frame */
+        z-index: 1;
       }
 
       .content h1 {
