@@ -39,6 +39,7 @@
       max-width: 450px;
       padding: 4rem 2rem;
       z-index: 10;
+      position: relative;
     }
 
     /* Content area */
@@ -84,63 +85,65 @@
       word-break: break-word;
     }
 
-    /* Radiating border container - fills the right 2/3 */
+    /* Radiating vertical border lines - start after content, go to right edge */
     .border-container {
       position: fixed;
       top: 0;
-      left: calc(33% + 450px); /* Start where content ends */
+      left: 33%;
       right: 0;
       bottom: 0;
       pointer-events: none;
       z-index: 1;
     }
 
-    .border-ring {
+    /* Vertical line style */
+    .border-line {
       position: absolute;
-      border-color: #ff6347;
-      border-width: 2px;
+      top: 0;
+      bottom: 0;
+      border-right: 1px solid #ff6347;
     }
 
-    /* Mixed border style combinations for each ring - radiating rightward */
-    .border-ring:nth-child(1) {
-      top: 0; left: 0; right: 0; bottom: 0;
-      border-style: solid dotted dashed double;
+    /* Mixed border style variations for each vertical line */
+    .border-line:nth-child(1) {
+      left: 0%;
+      border-right: 1px dotted #ff6347;
     }
-    .border-ring:nth-child(2) {
-      top: 12px; left: 12px; right: 12px; bottom: 12px;
-      border-style: groove ridge inset outset;
+    .border-line:nth-child(2) {
+      left: 12%;
+      border-right: 1px dashed #ff6347;
     }
-    .border-ring:nth-child(3) {
-      top: 24px; left: 24px; right: 24px; bottom: 24px;
-      border-style: dashed double solid dotted;
+    .border-line:nth-child(3) {
+      left: 24%;
+      border-right: 1px double #ff6347;
     }
-    .border-ring:nth-child(4) {
-      top: 36px; left: 36px; right: 36px; bottom: 36px;
-      border-style: outset inset groove ridge;
+    .border-line:nth-child(4) {
+      left: 36%;
+      border-right: 1px solid #ff6347;
     }
-    .border-ring:nth-child(5) {
-      top: 48px; left: 48px; right: 48px; bottom: 48px;
-      border-style: dotted solid double groove;
+    .border-line:nth-child(5) {
+      left: 48%;
+      border-right: 1px dotted #ff6347;
     }
-    .border-ring:nth-child(6) {
-      top: 60px; left: 60px; right: 60px; bottom: 60px;
-      border-style: ridge dashed outset inset;
+    .border-line:nth-child(6) {
+      left: 60%;
+      border-right: 1px dashed #ff6347;
     }
-    .border-ring:nth-child(7) {
-      top: 72px; left: 72px; right: 72px; bottom: 72px;
-      border-style: double dotted ridge solid;
+    .border-line:nth-child(7) {
+      left: 72%;
+      border-right: 1px double #ff6347;
     }
-    .border-ring:nth-child(8) {
-      top: 84px; left: 84px; right: 84px; bottom: 84px;
-      border-style: inset groove dotted dashed;
+    .border-line:nth-child(8) {
+      left: 84%;
+      border-right: 1px solid #ff6347;
     }
-    .border-ring:nth-child(9) {
-      top: 96px; left: 96px; right: 96px; bottom: 96px;
-      border-style: solid ridge double outset;
+    .border-line:nth-child(9) {
+      left: 96%;
+      border-right: 1px dotted #ff6347;
     }
-    .border-ring:nth-child(10) {
-      top: 108px; left: 108px; right: 108px; bottom: 108px;
-      border-style: dashed outset groove solid;
+    .border-line:nth-child(10) {
+      left: 100%;
+      border-right: 1px dashed #ff6347;
     }
 
     /* Mobile styles */
@@ -154,7 +157,7 @@
         flex-direction: column;
       }
 
-      /* Hide ALL border rings on mobile */
+      /* Hide ALL border lines on mobile */
       .border-container {
         display: none;
       }
@@ -197,18 +200,18 @@
     </div>
   </div>
 
-  <!-- Borders radiating on the right two-thirds -->
+  <!-- Vertical lines radiating on the right two-thirds -->
   <div class="border-container">
-    <div class="border-ring"></div>
-    <div class="border-ring"></div>
-    <div class="border-ring"></div>
-    <div class="border-ring"></div>
-    <div class="border-ring"></div>
-    <div class="border-ring"></div>
-    <div class="border-ring"></div>
-    <div class="border-ring"></div>
-    <div class="border-ring"></div>
-    <div class="border-ring"></div>
+    <div class="border-line"></div>
+    <div class="border-line"></div>
+    <div class="border-line"></div>
+    <div class="border-line"></div>
+    <div class="border-line"></div>
+    <div class="border-line"></div>
+    <div class="border-line"></div>
+    <div class="border-line"></div>
+    <div class="border-line"></div>
+    <div class="border-line"></div>
   </div>
 </body>
 </html>
