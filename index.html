@@ -33,19 +33,23 @@
 
     .content {
       width: clamp(280px, 55vw, 700px);
-      padding: 0.75rem;                    /* Reduced from 1.5rem */
+      padding: 0.75rem;
       background-color: white;
       text-align: left;
       font-size: clamp(0.7rem, 1.4vh + 0.4vw, 1.1rem);
       line-height: 1.7;
 
-      /* Five thin tomato-red borders radiating outward */
+      /* Five thin tomato-red rings with white gaps between them */
       box-shadow:
-        0 0 0 2px #ff6347,                 /* Layer 1 */
-        0 0 0 5px #ff6347,                 /* Layer 2 */
-        0 0 0 8px #ff6347,                 /* Layer 3 */
-        0 0 0 11px #ff6347,                /* Layer 4 */
-        0 0 0 14px #ff6347;                /* Layer 5 */
+        0 0 0 2px #ff6347,     /* Ring 1 */
+        0 0 0 4px white,       /* Gap */
+        0 0 0 6px #ff6347,     /* Ring 2 */
+        0 0 0 8px white,       /* Gap */
+        0 0 0 10px #ff6347,    /* Ring 3 */
+        0 0 0 12px white,      /* Gap */
+        0 0 0 14px #ff6347,    /* Ring 4 */
+        0 0 0 16px white,      /* Gap */
+        0 0 0 18px #ff6347;    /* Ring 5 */
     }
 
     .content h1 {
@@ -97,11 +101,13 @@
         font-size: 1rem;
         line-height: 1.5;
 
-        /* Three concentric borders on mobile (cleaner for small screens) */
+        /* Three concentric tomato-red rings on mobile */
         box-shadow:
-          0 0 0 2px #ff6347,
-          0 0 0 4px #ff6347,
-          0 0 0 6px #ff6347;
+          0 0 0 2px #ff6347,   /* Ring 1 */
+          0 0 0 4px white,     /* Gap */
+          0 0 0 6px #ff6347,   /* Ring 2 */
+          0 0 0 8px white,     /* Gap */
+          0 0 0 10px #ff6347;  /* Ring 3 */
       }
 
       .content h1 {
