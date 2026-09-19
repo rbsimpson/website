@@ -19,7 +19,7 @@
     /* Desktop styles */
     body {
       margin: 0;
-      padding: 1rem;
+      padding: 0;
       min-height: 100vh;
       background-color: white;
       font-family: Optima, Candara, sans-serif;
@@ -29,6 +29,65 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      position: relative;
+    }
+
+    /* Radiating border container */
+    .border-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .border-ring {
+      position: absolute;
+      border-color: #ff6347;
+    }
+
+    /* Alternating border styles for desktop */
+    .border-ring:nth-child(1) { 
+      top: 0; left: 0; right: 0; bottom: 0; 
+      border-style: solid;
+    }
+    .border-ring:nth-child(2) { 
+      top: 10px; left: 10px; right: 10px; bottom: 10px; 
+      border-style: dotted;
+    }
+    .border-ring:nth-child(3) { 
+      top: 20px; left: 20px; right: 20px; bottom: 20px; 
+      border-style: dashed;
+    }
+    .border-ring:nth-child(4) { 
+      top: 30px; left: 30px; right: 30px; bottom: 30px; 
+      border-style: double;
+    }
+    .border-ring:nth-child(5) { 
+      top: 40px; left: 40px; right: 40px; bottom: 40px; 
+      border-style: groove;
+    }
+    .border-ring:nth-child(6) { 
+      top: 50px; left: 50px; right: 50px; bottom: 50px; 
+      border-style: ridge;
+    }
+    .border-ring:nth-child(7) { 
+      top: 60px; left: 60px; right: 60px; bottom: 60px; 
+      border-style: inset;
+    }
+    .border-ring:nth-child(8) { 
+      top: 70px; left: 70px; right: 70px; bottom: 70px; 
+      border-style: outset;
+    }
+    .border-ring:nth-child(9) { 
+      top: 80px; left: 80px; right: 80px; bottom: 80px; 
+      border-style: solid;
+    }
+    .border-ring:nth-child(10) { 
+      top: 90px; left: 90px; right: 90px; bottom: 90px; 
+      border-style: dotted;
     }
 
     .content {
@@ -38,18 +97,9 @@
       text-align: left;
       font-size: clamp(0.7rem, 1.4vh + 0.4vw, 1.1rem);
       line-height: 1.7;
-
-      /* Five thin tomato-red rings with white gaps between them */
-      box-shadow:
-        0 0 0 2px #ff6347,     /* Ring 1 */
-        0 0 0 4px white,       /* Gap */
-        0 0 0 6px #ff6347,     /* Ring 2 */
-        0 0 0 8px white,       /* Gap */
-        0 0 0 10px #ff6347,    /* Ring 3 */
-        0 0 0 12px white,      /* Gap */
-        0 0 0 14px #ff6347,    /* Ring 4 */
-        0 0 0 16px white,      /* Gap */
-        0 0 0 18px #ff6347;    /* Ring 5 */
+      position: relative;
+      z-index: 1;
+      background-color: rgba(255, 255, 255, 0.95);
     }
 
     .content h1 {
@@ -89,10 +139,31 @@
     /* Mobile styles */
     @media screen and (max-width: 500px) {
       body {
-        padding: 0.5rem;
-        overflow: auto;
+        padding: 0;
+        overflow-x: auto;
         justify-content: flex-start;
         min-height: auto;
+      }
+
+      .border-ring:nth-child(1) { 
+        top: 0; left: 0; right: 0; bottom: 0; 
+        border-style: solid;
+      }
+      .border-ring:nth-child(2) { 
+        top: 8px; left: 8px; right: 8px; bottom: 8px; 
+        border-style: dashed;
+      }
+      .border-ring:nth-child(3) { 
+        top: 16px; left: 16px; right: 16px; bottom: 16px; 
+        border-style: double;
+      }
+      .border-ring:nth-child(4) { 
+        top: 24px; left: 24px; right: 24px; bottom: 24px; 
+        border-style: groove;
+      }
+      .border-ring:nth-child(5) { 
+        top: 32px; left: 32px; right: 32px; bottom: 32px; 
+        border-style: ridge;
       }
 
       .content {
@@ -100,14 +171,7 @@
         padding: 0.75rem;
         font-size: 1rem;
         line-height: 1.5;
-
-        /* Three concentric tomato-red rings on mobile */
-        box-shadow:
-          0 0 0 2px #ff6347,   /* Ring 1 */
-          0 0 0 4px white,     /* Gap */
-          0 0 0 6px #ff6347,   /* Ring 2 */
-          0 0 0 8px white,     /* Gap */
-          0 0 0 10px #ff6347;  /* Ring 3 */
+        margin: 50px 0.5rem 0.5rem;
       }
 
       .content h1 {
@@ -117,6 +181,20 @@
   </style>
 </head>
 <body>
+  <!-- Radiating border rings extending to page edges -->
+  <div class="border-container">
+    <div class="border-ring"></div>
+    <div class="border-ring"></div>
+    <div class="border-ring"></div>
+    <div class="border-ring"></div>
+    <div class="border-ring"></div>
+    <div class="border-ring"></div>
+    <div class="border-ring"></div>
+    <div class="border-ring"></div>
+    <div class="border-ring"></div>
+    <div class="border-ring"></div>
+  </div>
+
   <div class="content">
     <h1>Robin Simpson</h1>
     <p>
