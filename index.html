@@ -138,17 +138,24 @@
     /* Mobile styles */
     @media screen and (max-width: 500px) {
       body {
-        padding: 40px; /* clear the innermost ring at 32px */
-        background-color: white; /* explicit; remove if you truly want no white page bg */
+        padding: 0;
+        background-color: white;
         overflow-x: hidden;
-        justify-content: center; /* re-center vertically */
-        min-height: 100vh;
+        justify-content: flex-start;
+        min-height: auto;
+      }
+
+      /* Frame sits ABOVE content */
+      .border-container {
+        z-index: 10;
+        pointer-events: none; /* clicks pass through to text below */
       }
 
       /* Only the first 5 rings, thin and evenly spaced */
       .border-ring {
         border-width: 1px;
         border-style: solid !important;
+        background-color: white; /* fills the space so text scrolls behind */
       }
 
       .border-ring:nth-child(n+6) {
@@ -173,12 +180,13 @@
 
       .content {
         width: 100%;
-        margin: 0;                 /* no offset – sit inside the rings */
-        padding: 0;                /* body padding handles the ring clearance */
-        background-color: transparent; /* no white card background */
+        margin: 0;
+        padding: 0 1rem;
+        background-color: transparent;
         font-size: 1rem;
         line-height: 1.5;
-        box-shadow: none;
+        position: relative;
+        z-index: 1; /* BELOW the frame */
       }
 
       .content h1 {
