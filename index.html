@@ -39,13 +39,13 @@
       right: 0;
       bottom: 0;
       pointer-events: none;
-      z-index: 10;
+      z-index: -1;
     }
 
     .border-ring {
       position: absolute;
       border-color: #ff6347;
-      border-width: 1px;
+      border-width: 2px;
     }
 
     /* Random mixed border style combinations for each ring */
@@ -139,13 +139,13 @@
     @media screen and (max-width: 500px) {
       body {
         padding: 0;
-        background-color: white;
+        background-color: white; /* This becomes the "band" color */
         overflow-x: hidden;
         justify-content: flex-start;
         min-height: auto;
       }
 
-      /* Frame sits ABOVE content */
+      /* Frame sits ABOVE content - just borders, NO backgrounds */
       .border-container {
         z-index: 10;
         pointer-events: none;
@@ -156,38 +156,33 @@
         display: none;
       }
 
-      /* Rings 1-4: white bands between them */
+      /* All rings: thin solid tomato borders, NO backgrounds */
+      .border-ring {
+        border-width: 1px !important;
+        border-style: solid !important;
+        background-color: transparent !important;
+      }
+
       .border-ring:nth-child(1) {
         top: 0; left: 0; right: 0; bottom: 0;
-        background-color: white;
-        z-index: 10;
       }
       .border-ring:nth-child(2) {
         top: 8px; left: 8px; right: 8px; bottom: 8px;
-        background-color: white;
-        z-index: 9;
       }
       .border-ring:nth-child(3) {
         top: 16px; left: 16px; right: 16px; bottom: 16px;
-        background-color: white;
-        z-index: 8;
       }
       .border-ring:nth-child(4) {
         top: 24px; left: 24px; right: 24px; bottom: 24px;
-        background-color: white;
-        z-index: 7;
       }
-      /* Innermost ring: NO background - lets text show through */
       .border-ring:nth-child(5) {
         top: 32px; left: 32px; right: 32px; bottom: 32px;
-        background-color: transparent;
-        z-index: 6;
       }
 
       .content {
         width: 100%;
-        margin: 0;
-        padding: 44px 1rem; /* account for 32px ring + 1px border + 11px buffer */
+        margin: 40px 0 0 0; /* Push down past the frame */
+        padding: 1rem;
         background-color: transparent;
         font-size: 1rem;
         line-height: 1.5;
