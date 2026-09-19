@@ -25,15 +25,6 @@
       font-family: Optima, Candara, sans-serif;
       color: #ff6347;
 
-      border: 12px solid transparent;
-      border-image: repeating-linear-gradient(
-        45deg,
-        #ff6347 0px,
-        #ff6347 8px,
-        transparent 8px,
-        transparent 20px
-      ) 12;
-
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -42,11 +33,19 @@
 
     .content {
       width: clamp(280px, 55vw, 700px);
-      padding: 1.5rem;
+      padding: 0.75rem;                    /* Reduced from 1.5rem */
       background-color: white;
       text-align: left;
-      font-size: clamp(0.7rem, 1.4vh + 0.4vw, 1.1rem);  /* Responds to height AND width */
+      font-size: clamp(0.7rem, 1.4vh + 0.4vw, 1.1rem);
       line-height: 1.7;
+
+      /* Five thin tomato-red borders radiating outward */
+      box-shadow:
+        0 0 0 2px #ff6347,                 /* Layer 1 */
+        0 0 0 5px #ff6347,                 /* Layer 2 */
+        0 0 0 8px #ff6347,                 /* Layer 3 */
+        0 0 0 11px #ff6347,                /* Layer 4 */
+        0 0 0 14px #ff6347;                /* Layer 5 */
     }
 
     .content h1 {
@@ -86,14 +85,6 @@
     /* Mobile styles */
     @media screen and (max-width: 500px) {
       body {
-        border: 8px solid transparent;
-        border-image: repeating-linear-gradient(
-          45deg,
-          #ff6347 0px,
-          #ff6347 6px,
-          transparent 6px,
-          transparent 16px
-        ) 8;
         padding: 0.5rem;
         overflow: auto;
         justify-content: flex-start;
@@ -102,9 +93,15 @@
 
       .content {
         width: 100%;
-        padding: 1rem;
+        padding: 0.75rem;
         font-size: 1rem;
         line-height: 1.5;
+
+        /* Three concentric borders on mobile (cleaner for small screens) */
+        box-shadow:
+          0 0 0 2px #ff6347,
+          0 0 0 4px #ff6347,
+          0 0 0 6px #ff6347;
       }
 
       .content h1 {
