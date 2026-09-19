@@ -7,7 +7,8 @@
   <meta name="robots" content="index, follow" />
   <title>Robin Simpson</title>
   <style>
-    * {
+    /* Reset */
+    *, *::before, *::after {
       box-sizing: border-box;
     }
 
@@ -15,6 +16,7 @@
       font-size: 18px;
     }
 
+    /* Desktop styles */
     body {
       margin: 0;
       padding: 1rem;
@@ -22,8 +24,7 @@
       background-color: white;
       font-family: Optima, Candara, sans-serif;
       color: #ff6347;
-      
-      /* Thick tomato border around entire page */
+
       border: 12px solid transparent;
       border-image: repeating-linear-gradient(
         45deg,
@@ -32,30 +33,18 @@
         transparent 8px,
         transparent 20px
       ) 12;
-      
-      /* Flexbox for centering */
+
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      
-      /* Prevent overflow */
-      overflow: hidden;
     }
 
     .content {
-      /* Responsive sizing that adapts to viewport */
-      width: clamp(280px, 50vw, 600px);
-      max-height: calc(100vh - 80px);
-      overflow-y: auto;
-      overflow-x: hidden;
-      text-align: left;
-      
-      /* Padding inside the floating area */
+      width: clamp(280px, 55vw, 700px);
       padding: 1.5rem;
       background-color: white;
-      
-      /* Smooth font scaling */
+      text-align: left;
       font-size: clamp(0.9rem, 2.5vw, 1.1rem);
       line-height: 1.7;
     }
@@ -63,7 +52,7 @@
     .content h1 {
       margin-top: 0;
       margin-bottom: 1rem;
-      font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+      font-size: 1rem;
       font-weight: bold;
       color: #ff6347;
     }
@@ -73,15 +62,17 @@
       margin-bottom: 1rem;
     }
 
-    .content ul {
+    .content ul,
+    .content li {
       font-style: italic;
       line-height: 1.7;
+    }
+
+    .content ul {
       margin-left: 1.5rem;
     }
 
     .content li {
-      font-style: italic;
-      line-height: 1.7;
       margin-bottom: 0.5rem;
     }
 
@@ -92,7 +83,7 @@
       word-break: break-word;
     }
 
-    /* Mobile version - TOMATO BORDER INCLUDED */
+    /* Mobile styles */
     @media screen and (max-width: 500px) {
       body {
         border: 8px solid transparent;
@@ -111,28 +102,13 @@
 
       .content {
         width: 100%;
-        max-height: none;
         padding: 1rem;
         font-size: 1rem;
+        line-height: 1.5;
       }
 
       .content h1 {
         font-size: 1.5rem;
-      }
-
-      .content p {
-        font-size: 1rem;
-        line-height: 1.5;
-      }
-
-      .content ul {
-        font-size: 1rem;
-        line-height: 1.5;
-      }
-
-      .content li {
-        font-size: 1rem;
-        line-height: 1.5;
       }
     }
   </style>
@@ -143,9 +119,8 @@
     <p>
       I'm a teacher, writer, occasional translator, and on-again, off-again cultural worker and programmer.
       I'm part-time faculty at The Cooper Union for the Advancement of Science and Art and Fordham University,
-      where I teach seminars in art history, literature, curatorial practice, modern political thought, and critical theory. I've previously worked at the Leonard & Bina Ellen Art Gallery, the Morris & Helen Belkin Art Gallery, the Aga Khan Museum, Centre des arts actuels SKOL, and the Fonderie Darling.</p> 
-    <p>My current book project, <span style="font-style: normal;">Surrounded by Me</span>, explores the discursive, artistic, and clinical lives of video feedback in the hands of artists and psychotherapists in the 1970s. Its follow up, <span style="font-style: normal;">Mad Media</span>, examines the encounters between Mad liberation, digital technology, and
-critical theory in the 1980s and 1990s. In collaboration with the Williams family and musician and writer Alexander Moskos, I coordinate the preservation, research, and presentation of the life work of artist, poet, and musician Carlyle Williams. </p>
+      where I teach seminars in art history, literature, curatorial practice, modern political thought, and critical theory. I've previously worked at the Leonard & Bina Ellen Art Gallery, the Morris & Helen Belkin Art Gallery, the Aga Khan Museum, Centre des arts actuels SKOL, and the Fonderie Darling.</p>
+    <p>My current book project, <span style="font-style: normal;">Surrounded by Me</span>, explores the discursive, artistic, and clinical lives of video feedback in the hands of artists and psychotherapists in the 1970s. Its follow up, <span style="font-style: normal;">Mad Media</span>, examines the encounters between Mad liberation, digital technology, and critical theory in the 1980s and 1990s. In collaboration with the Williams family and musician and writer Alexander Moskos, I coordinate the preservation, research, and presentation of the life work of artist, poet, and musician Carlyle Williams.</p>
     <p class="email">Write to me at robin.b.simpson@pm.me</p>
   </div>
 </body>
