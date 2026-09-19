@@ -141,8 +141,6 @@
         padding: 0;
         background-color: white;
         overflow-x: hidden;
-        justify-content: flex-start;
-        min-height: auto;
       }
 
       /* Hide desktop-only rings 6-10 */
@@ -150,66 +148,52 @@
         display: none;
       }
 
-      /* All rings: thin solid tomato borders, transparent */
+      /* All rings: thin solid tomato borders */
       .border-ring {
         border-width: 1px !important;
         border-style: solid !important;
-        background-color: transparent !important;
       }
 
-      .border-ring:nth-child(1) {
-        top: 0; left: 0; right: 0; bottom: 0;
-      }
-      .border-ring:nth-child(2) {
-        top: 8px; left: 8px; right: 8px; bottom: 8px;
-      }
-      .border-ring:nth-child(3) {
-        top: 16px; left: 16px; right: 16px; bottom: 16px;
-      }
-      .border-ring:nth-child(4) {
-        top: 24px; left: 24px; right: 24px; bottom: 24px;
-      }
-      .border-ring:nth-child(5) {
-        top: 32px; left: 32px; right: 32px; bottom: 32px;
-      }
-
-      /* White masking bands using pseudo-elements */
-      /* These cover text between rings but NOT inside ring 5 */
-      .border-ring:nth-child(1)::after {
-        content: '';
-        position: absolute;
-        top: 2px; left: 2px; right: 2px; bottom: 2px;
-        background: white;
-        z-index: -1;
-      }
-      .border-ring:nth-child(2)::after {
-        content: '';
-        position: absolute;
-        top: 2px; left: 2px; right: 2px; bottom: 2px;
-        background: white;
-        z-index: -1;
-      }
-      .border-ring:nth-child(3)::after {
-        content: '';
-        position: absolute;
-        top: 2px; left: 2px; right: 2px; bottom: 2px;
-        background: white;
-        z-index: -1;
-      }
-      .border-ring:nth-child(4)::after {
-        content: '';
-        position: absolute;
-        top: 2px; left: 2px; right: 2px; bottom: 2px;
-        background: white;
-        z-index: -1;
-      }
-      /* Ring 5 has NO ::after - text shows through */
-
+      /* Place rings ABOVE content */
       .border-container {
-        z-index: 10;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 100;
         pointer-events: none;
       }
 
+      /* Rings 1-4: WHITE BACKGROUND masks text inside them */
+      .border-ring:nth-child(1) {
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-color: white !important;
+        z-index: 5;
+      }
+      .border-ring:nth-child(2) {
+        top: 8px; left: 8px; right: 8px; bottom: 8px;
+        background-color: white !important;
+        z-index: 6;
+      }
+      .border-ring:nth-child(3) {
+        top: 16px; left: 16px; right: 16px; bottom: 16px;
+        background-color: white !important;
+        z-index: 7;
+      }
+      .border-ring:nth-child(4) {
+        top: 24px; left: 24px; right: 24px; bottom: 24px;
+        background-color: white !important;
+        z-index: 8;
+      }
+      /* Ring 5: NO WHITE BACKGROUND - text shows through */
+      .border-ring:nth-child(5) {
+        top: 32px; left: 32px; right: 32px; bottom: 32px;
+        background-color: transparent !important;
+        z-index: 9;
+      }
+
+      /* Content starts at top with minimal margin */
       .content {
         width: 100%;
         margin: 0;
