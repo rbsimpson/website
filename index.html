@@ -25,21 +25,74 @@
       font-family: Optima, Candara, sans-serif;
       color: #ff6347;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       position: relative;
+      overflow-x: hidden;
     }
 
-    /* Radiating border container */
+    /* Content container - left 1/3 of page */
+    .content-wrapper {
+      width: 33%;
+      min-width: 320px;
+      max-width: 450px;
+      padding: 4rem 2rem;
+      z-index: 10;
+    }
+
+    /* Content area */
+    .content {
+      width: 100%;
+      background-color: transparent;
+      text-align: left;
+      font-size: 1.25rem;
+      line-height: 1.8;
+    }
+
+    .content h1 {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ff6347;
+    }
+
+    .content p {
+      font-style: italic;
+      margin-bottom: 1.25rem;
+    }
+
+    .content ul,
+    .content li {
+      font-style: italic;
+      line-height: 1.8;
+    }
+
+    .content ul {
+      margin-left: 1.5rem;
+    }
+
+    .content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .email {
+      margin-top: 1.5rem;
+      font-style: normal;
+      font-weight: bold;
+      word-break: break-word;
+    }
+
+    /* Radiating border container - fills the right 2/3 */
     .border-container {
       position: fixed;
       top: 0;
-      left: 0;
+      left: calc(33% + 450px); /* Start where content ends */
       right: 0;
       bottom: 0;
       pointer-events: none;
-      z-index: -1;
+      z-index: 1;
     }
 
     .border-ring {
@@ -48,7 +101,7 @@
       border-width: 2px;
     }
 
-    /* Random mixed border style combinations for each ring */
+    /* Mixed border style combinations for each ring - radiating rightward */
     .border-ring:nth-child(1) {
       top: 0; left: 0; right: 0; bottom: 0;
       border-style: solid dotted dashed double;
@@ -90,51 +143,6 @@
       border-style: dashed outset groove solid;
     }
 
-    .content {
-      width: clamp(280px, 55vw, 700px);
-      padding: 0.75rem;
-      background-color: rgba(255, 255, 255, 0.95);
-      text-align: left;
-      font-size: clamp(0.7rem, 1.4vh + 0.4vw, 1.1rem);
-      line-height: 1.7;
-      position: relative;
-      z-index: 1;
-    }
-
-    .content h1 {
-      margin-top: 0;
-      margin-bottom: 1rem;
-      font-size: 1rem;
-      font-weight: bold;
-      color: #ff6347;
-    }
-
-    .content p {
-      font-style: italic;
-      margin-bottom: 1rem;
-    }
-
-    .content ul,
-    .content li {
-      font-style: italic;
-      line-height: 1.7;
-    }
-
-    .content ul {
-      margin-left: 1.5rem;
-    }
-
-    .content li {
-      margin-bottom: 0.5rem;
-    }
-
-    .email {
-      margin-top: 1.5rem;
-      font-style: normal;
-      font-weight: bold;
-      word-break: break-word;
-    }
-
     /* Mobile styles */
     @media screen and (max-width: 500px) {
       body {
@@ -143,6 +151,7 @@
         overflow-x: hidden;
         justify-content: flex-start;
         min-height: auto;
+        flex-direction: column;
       }
 
       /* Hide ALL border rings on mobile */
@@ -150,9 +159,16 @@
         display: none;
       }
 
+      .content-wrapper {
+        width: 100%;
+        min-width: unset;
+        max-width: unset;
+        padding: 1rem;
+      }
+
       .content {
         width: 100%;
-        margin: 1rem;
+        margin: 0;
         padding: 0;
         background-color: transparent;
         font-size: 1rem;
@@ -168,7 +184,20 @@
   </style>
 </head>
 <body>
-  <!-- Radiating border rings extending to page edges -->
+  <!-- Content on left third -->
+  <div class="content-wrapper">
+    <div class="content">
+      <h1>Robin Simpson</h1>
+      <p>
+        I'm a teacher, writer, occasional translator, and on-again, off-again cultural worker and programmer.
+        I'm part-time faculty at The Cooper Union for the Advancement of Science and Art and Fordham University,
+        where I teach art history, literature, curatorial practice, modern political thought, and critical theory. I've previously worked at the Leonard & Bina Ellen Art Gallery, the Morris & Helen Belkin Art Gallery, the Aga Khan Museum, Centre des arts actuels SKOL, and the Fonderie Darling.</p>
+      <p>My current book project, <span style="font-style: normal;">Surrounded by Me</span>, explores the discursive, artistic, and clinical lives of video feedback in the hands of artists and psychotherapists in the 1970s. Its follow up, <span style="font-style: normal;">Mad Media</span>, examines the encounters between Mad liberation, digital technology, and critical theory in the 1980s and the 1990s. In collaboration with the Williams family and musician and writer Alexander Moskos, I coordinate the preservation, research, and presentation of the life work of artist, poet, and musician Carlyle Williams.</p>
+      <p class="email">Write to me at robin.b.simpson@pm.me</p>
+    </div>
+  </div>
+
+  <!-- Borders radiating on the right two-thirds -->
   <div class="border-container">
     <div class="border-ring"></div>
     <div class="border-ring"></div>
@@ -180,16 +209,6 @@
     <div class="border-ring"></div>
     <div class="border-ring"></div>
     <div class="border-ring"></div>
-  </div>
-
-  <div class="content">
-    <h1>Robin Simpson</h1>
-    <p>
-      I'm a teacher, writer, occasional translator, and on-again, off-again cultural worker and programmer.
-      I'm part-time faculty at The Cooper Union for the Advancement of Science and Art and Fordham University,
-      where I teach art history, literature, curatorial practice, modern political thought, and critical theory. I've previously worked at the Leonard &amp; Bina Ellen Art Gallery, the Morris &amp; Helen Belkin Art Gallery, the Aga Khan Museum, Centre des arts actuels SKOL, and the Fonderie Darling.</p>
-    <p>My current book project, <span style="font-style: normal;">Surrounded by Me</span>, explores the discursive, artistic, and clinical lives of video feedback in the hands of artists and psychotherapists in the 1970s. Its follow up, <span style="font-style: normal;">Mad Media</span>, examines the encounters between Mad liberation, digital technology, and critical theory in the 1980s and the 1990s. In collaboration with the Williams family and musician and writer Alexander Moskos, I coordinate the preservation, research, and presentation of the life work of artist, poet, and musician Carlyle Williams.</p>
-    <p class="email">Write to me at robin.b.simpson@pm.me</p>
   </div>
 </body>
 </html>
